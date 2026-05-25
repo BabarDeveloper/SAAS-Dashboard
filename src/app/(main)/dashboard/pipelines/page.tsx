@@ -225,6 +225,8 @@ const Index = () => {
           id: generateId(),
           name: randomItem(NAMES),
           product: randomItem(PRODUCTS),
+          source: randomItem(SOURCES),
+          stage: "new",
           timestamp: new Date(),
           lastMovedAt: new Date(),
         };
