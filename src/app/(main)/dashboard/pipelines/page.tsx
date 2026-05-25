@@ -572,8 +572,8 @@ const Index = () => {
 
                         <ul
                           className="custom-scrollbar flex min-h-[100px] flex-1 flex-col gap-2 overflow-y-auto pr-1"
-                          onDragOver={(e: DragEvent<HTMLDivElement>) => e.preventDefault()}
-                          onDrop={(e: DragEvent<HTMLDivElement>) => {
+                          onDragOver={(e: DragEvent<HTMLUListElement>) => e.preventDefault()}
+                          onDrop={(e: DragEvent<HTMLUListElement>) => {
                             e.preventDefault();
                             const leadId = e.dataTransfer.getData("leadId");
                             if (!leadId) return;
