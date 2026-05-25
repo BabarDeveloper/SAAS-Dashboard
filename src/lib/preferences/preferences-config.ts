@@ -66,8 +66,8 @@ type PreferencePersistenceConfig = {
  * Default preference values on first load.
  */
 export const PREFERENCE_DEFAULTS: PreferenceValueMap = {
-  theme_mode: "light",
-  theme_preset: "default",
+  theme_mode: "dark",
+  theme_preset: "tangerine",
   font: "geist",
   content_layout: "centered",
   navbar_style: "sticky",

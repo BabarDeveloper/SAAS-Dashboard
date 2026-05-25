@@ -1,6 +1,6 @@
 "use client";
 
-import { Bar, BarChart, CartesianGrid, Label, LabelList, Pie, PieChart, XAxis, YAxis } from "recharts";
+import { Funnel, FunnelChart, Label, LabelList, Pie, PieChart } from "recharts";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,15 +9,15 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
 import {
   leadsBySourceChartConfig,
   leadsBySourceChartData,
-  projectRevenueChartConfig,
-  projectRevenueChartData,
+  salesPipelineChartConfig,
+  salesPipelineChartData,
 } from "./crm.config";
 
 export function InsightCards() {
   const totalLeads = leadsBySourceChartData.reduce((acc, curr) => acc + curr.leads, 0);
 
   return (
-    <div className="grid grid-cols-1 gap-4 *:data-[slot=card]:shadow-xs sm:grid-cols-2 xl:grid-cols-5">
+    <div className="grid grid-cols-1 gap-4 *:data-[slot=card]:shadow-xs sm:grid-cols-2 xl:grid-cols-3">
       <Card className="col-span-1 xl:col-span-2">
         <CardHeader>
           <CardTitle>Leads by Source</CardTitle>
@@ -97,7 +97,26 @@ export function InsightCards() {
         </CardFooter>
       </Card>
 
-      <Card className="col-span-1 xl:col-span-3">
+      <Card>
+        <CardHeader>
+          <CardTitle>Sales Pipeline</CardTitle>
+        </CardHeader>
+        <CardContent className="size-full">
+          <ChartContainer config={salesPipelineChartConfig} className="size-full">
+            <FunnelChart margin={{ left: 0, right: 0, top: 0, bottom: 0 }}>
+              <Funnel className="stroke-2 stroke-card" dataKey="value" data={salesPipelineChartData}>
+                <LabelList className="fill-foreground stroke-0" dataKey="stage" position="right" offset={10} />
+                <LabelList className="fill-foreground stroke-0" dataKey="value" position="left" offset={10} />
+              </Funnel>
+            </FunnelChart>
+          </ChartContainer>
+        </CardContent>
+        <CardFooter>
+          <p className="text-muted-foreground text-xs">Leads increased by 18.2% since last month.</p>
+        </CardFooter>
+      </Card>
+
+      {/* <Card className="col-span-1 xl:col-span-3">
         <CardHeader>
           <CardTitle>Project Revenue vs. Target</CardTitle>
         </CardHeader>
@@ -144,7 +163,7 @@ export function InsightCards() {
         <CardFooter>
           <p className="text-muted-foreground text-xs">Average progress: 78% · 2 projects above target</p>
         </CardFooter>
-      </Card>
+      </Card> */}
     </div>
   );
 }

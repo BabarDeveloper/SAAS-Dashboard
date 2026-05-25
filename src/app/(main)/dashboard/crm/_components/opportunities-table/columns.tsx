@@ -95,11 +95,11 @@ export const opportunitiesColumns: ColumnDef<OpportunityRow>[] = [
     ),
     filterFn: "equalsString",
   },
-  {
-    accessorKey: "value",
-    header: "Value",
-    cell: ({ row }) => <div className="font-medium text-sm tabular-nums">{row.original.value}</div>,
-  },
+  // {
+  //   accessorKey: "value",
+  //   header: "Value",
+  //   cell: ({ row }) => <div className="font-medium text-sm tabular-nums">{row.original.value}</div>,
+  // },
   {
     id: "actions",
     header: () => <div className="text-right">Edit</div>,

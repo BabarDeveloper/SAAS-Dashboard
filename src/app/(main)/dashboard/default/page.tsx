@@ -1,9 +1,7 @@
 import { KpiCards } from "../crm/_components/kpi-cards";
 import { OpportunitiesSection } from "../crm/_components/opportunities-section";
 import { PipelineActivity } from "../crm/_components/pipeline-activity";
-import { MetricCards } from "./_components/metric-cards";
 import { PerformanceOverview } from "./_components/performance-overview";
-import { SubscriberOverview } from "./_components/subscriber-overview";
 
 export default function Page() {
   return (
