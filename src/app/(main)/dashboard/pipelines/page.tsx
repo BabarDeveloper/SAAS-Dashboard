@@ -641,12 +641,12 @@ const Index = () => {
                               <li
                                 key={lead.id}
                                 draggable
-                                onDragStart={(e: DragEvent<HTMLDivElement>) => {
+                                onDragStart={(e: DragEvent<HTMLLIElement>) => {
                                   e.dataTransfer.setData("leadId", lead.id);
-                                  (e.currentTarget as HTMLDivElement).style.opacity = "0.5";
+                                  (e.currentTarget as HTMLLIElement).style.opacity = "0.5";
                                 }}
-                                onDragEnd={(e: DragEvent<HTMLDivElement>) => {
-                                  (e.currentTarget as HTMLDivElement).style.opacity = "1";
+                                onDragEnd={(e: DragEvent<HTMLLIElement>) => {
+                                  (e.currentTarget as HTMLLIElement).style.opacity = "1";
                                 }}
                                 className="relative cursor-grab active:cursor-grabbing"
                               >
