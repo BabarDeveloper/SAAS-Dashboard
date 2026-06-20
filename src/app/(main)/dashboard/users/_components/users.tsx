@@ -37,13 +37,13 @@ export function Users({ users }: { users: UserRow[] }) {
   const [newName, setNewName] = React.useState("");
   const [newEmail, setNewEmail] = React.useState("");
   const [newRole, setNewRole] = React.useState<string>(filters.role[1] ?? "Contributor");
-  const [newTeam, setNewTeam] = React.useState<string>(filters.team[1] ?? "Platform");
+  const [newTeam, setNewTeam] = React.useState<UserRow["team"]>((filters.team[1] ?? "Platform") as UserRow["team"]);
   const [isEditOpen, setIsEditOpen] = React.useState(false);
   const [editingUser, setEditingUser] = React.useState<UserRow | null>(null);
   const [editName, setEditName] = React.useState("");
   const [editEmail, setEditEmail] = React.useState("");
   const [editRole, setEditRole] = React.useState<string>(filters.role[1] ?? "Contributor");
-  const [editTeam, setEditTeam] = React.useState<string>(filters.team[1] ?? "Platform");
+  const [editTeam, setEditTeam] = React.useState<UserRow["team"]>((filters.team[1] ?? "Platform") as UserRow["team"]);
   const [rowSelection, setRowSelection] = React.useState({});
   const [sorting, setSorting] = React.useState<SortingState>([{ id: "joinedDate", desc: true }]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
@@ -74,7 +74,7 @@ export function Users({ users }: { users: UserRow[] }) {
                   setEditName(u.name);
                   setEditEmail(u.email);
                   setEditRole(u.role);
-                  setEditTeam(u.team as string);
+                  setEditTeam(u.team);
                   setIsEditOpen(true);
                 }}
               >
@@ -282,7 +282,7 @@ export function Users({ users }: { users: UserRow[] }) {
               </div>
               <div className="space-y-1">
                 <Label>Team</Label>
-                <Select value={newTeam} onValueChange={(v) => setNewTeam(v)}>
+                <Select value={newTeam} onValueChange={(v) => setNewTeam(v as UserRow["team"])}>
                   <SelectTrigger size="sm" className="w-full">
                     <SelectValue />
                   </SelectTrigger>
@@ -363,7 +363,7 @@ export function Users({ users }: { users: UserRow[] }) {
               </div>
               <div className="space-y-1">
                 <Label>Team</Label>
-                <Select value={editTeam} onValueChange={(v) => setEditTeam(v)}>
+                <Select value={editTeam} onValueChange={(v) => setEditTeam(v as UserRow["team"])}>
                   <SelectTrigger size="sm" className="w-full">
                     <SelectValue />
                   </SelectTrigger>
