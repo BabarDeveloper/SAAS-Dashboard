@@ -50,13 +50,19 @@ export const sidebarItems: NavGroup[] = [
       {
         title: "Analytics",
         // url: "/dashboard/analytics",
-        url: "#",
+        url: "/dashboard/analytics",
         icon: Gauge,
       },
       {
         title: "Tenant Management",
         // url: "/dashboard/productivity",
-        url: "#",
+        url: "/dashboard/users",
+        icon: ListTodo,
+      },
+      {
+        title: "Form Builder",
+        // url: "/dashboard/productivity",
+        url: "/dashboard/form-builder",
         icon: ListTodo,
       },
       // {
